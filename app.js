@@ -6,8 +6,12 @@ document.getElementById('heading').innerText = `Seems it's ${day} 🤗`;
 // Add Item To Table 
 function addItem() {
     const inputValue = document.getElementById('input-field');
+    if (inputValue.innerText = '') {
+        alert('You Must Write Something!');
+    }
     
     const tr = document.createElement('tr');
+    tr.classList.add('single-item');
     tr.innerHTML = `<td class="item-name">${inputValue.value}</td>
     <td class="status">In Progress</td>
     <td class="actions"><button class="btn btn-success me-1 complete"><ion-icon name="checkmark-outline"></ion-icon></button><button class="btn btn-danger delete"><ion-icon name="trash-outline"></ion-icon></button></td>`;
@@ -37,8 +41,7 @@ function addItem() {
         button.addEventListener("click", function (e) {
             const trackTr = e.target.parentNode.parentNode.parentNode.parentNode;
             trackTr.removeChild(e.target.parentNode.parentNode.parentNode);
-            
-            
+            console.log(e.target.parentNode.parentNode.parentNode);
         })
 
         
