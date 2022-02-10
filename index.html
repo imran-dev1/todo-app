@@ -17,24 +17,27 @@
         background-color:rgb(235, 227, 255)
     }
     .logo{
-        max-width:300px;
+        max-width:200px;
     }
     .container{
         max-width:600px;
+    }
+    #heading{
+        color:#312770;
+        font-weight:600;
     }
     #todo-form{
         max-width:450px;
         margin:0 auto;
     }
     input{
-        border-bottom:2px solid #ae9df771!important;
+        border-bottom:2px solid #4d37ac71!important;
         border-top:0!important;
         border-left:0!important;
         border-right:0!important;
     }
     input:focus{
         box-shadow:0 17px 20px -21px #4d37acf6!important;
-        border-color: #4d37ac71!important;
     }
     #add-button{
         background-color: #4d37ac1c;
@@ -55,33 +58,58 @@
     table{
         color: rgb(50, 39, 112)!important;
     }
+    thead{
+        box-shadow: 0 5px 15px #0000001c;
+        border: 2px solid #cdc4ff54;
+    }
     thead tr{
-        background-color: #d9cff69e;
+        background-color: #d1c1ff85;
     }
     th {
-        padding-left:20px!important;
+        padding: 15px 10px 15px 20px!important;
     }
     table td{
         vertical-align: middle;
-        padding-left:20px!important;
+        padding: 15px 10px 15px 20px!important;
+    }
+    .single-item{
+        box-shadow: 0 6px 11px -12px #9e92ff;
     }
     
     ion-icon{
-        font-size:20px;
-        padding:10px;
+        font-size: 18px;
+        padding: 4px;
     }
     .btn{
         padding:0;
         line-height: 0;
     }
+    .modal{
+        background-color: #b2a3e1a3;
+        display:block;
+    }
+    .modal-content {
+        top:50px;
+        background-color: #e8e0ff;
+        border: none;
+        box-shadow: 0 11px 20px 0 #00000026;
+    }
+    .modal-header {
+        padding: 8px 16px;
+        background-color: #dfd4f9;
+    }
+    #alertModalLabel{
+        font-size:18px;
+        font-weight:600;
+    }
 
 </style>
 </head>
 <body>
-    <header class="text-center mt-4"><img class="logo" src="./todo-logo.svg" alt="" srcset=""></header>
+    <header class="text-center mt-4"><a href="/"><img class="logo" src="./pHero-todo.svg" alt="" srcset=""></a></header>
     <div class="container pt-5">
         <h2 class="text-center" id="heading"></h2>
-        <h5 class="text-center mb-5">Make Your Plan And Add Some Todo</h5>
+        <h5 class="text-center mb-5">Make Your Plan And Add Some Todos Now</h5>
         <!-- Input Field  -->
         <div class="input-group mb-3 pt-4" id="todo-form">
             <input type="text" class="form-control rounded-0 bg-transparent" id="input-field" placeholder="✍️ Add list here...">
@@ -100,6 +128,24 @@
             
         </tbody>
       </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal show fade" id="alert-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        style="z-index:-1;transition:.5s ease;opacity:0;">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-content"
+                style="opacity:0;transform:translateY(-40px) ;transition:.4s ease;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertModalLabel">Empty List 😔</h5>
+                    <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Please add your todo first!
+                </div>
+            </div>
+        </div>
     </div>
 
 
