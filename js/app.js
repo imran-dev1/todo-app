@@ -25,13 +25,14 @@ function addItem() {
         
     } else { 
         const tr = document.createElement('tr');
-    tr.classList.add('single-item');
+        tr.classList.add('single-item');
     tr.innerHTML = `<td class="item-name">${inputValue.value}</td>
     <td class="status">In Progress</td>
     <td class="actions"><button class="btn btn-success me-2 complete"><ion-icon name="checkmark-outline"></ion-icon></button><button class="btn btn-danger delete"><ion-icon name="trash-outline"></ion-icon></button></td>`;
     document.getElementById('table-body').appendChild(tr);
 
-    inputValue.value = '';
+        inputValue.value = '';
+        
 
     //Finish Task
 
@@ -57,10 +58,17 @@ function addItem() {
             trackTr.removeChild(e.target.parentNode.parentNode.parentNode);
             console.log(e.target.parentNode.parentNode.parentNode);
         })
-
-        
-    }
+        }
     }
     
     
 }
+
+// Keyboard Enter Event in Input 
+
+const enterPress = document.getElementById('input-field');
+enterPress.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {
+        addItem();
+    }
+})
